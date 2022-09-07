@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.clock {
+    border: solid black 3px;
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    background-image: url("saatBG.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+#center {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    border: solid 2px red;
+    background-color: black;
+    border-radius: 50%;
+    /* transform:translateX(-50%) translateY(-50%); */
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+#hand-hour {
+    --rot-hour: 0;
+    position: absolute;
+    bottom: 50%;
+    /* top'tan verirsen yönü aşağı dönük oluyor */
+    left: 50%;
+    height: 20%;
+    width: 15px;
+    background-color: black;
+    transform: translateX(-50%) rotate(calc(var(--rot-hour)*1deg));
+    transform-origin: bottom;
+
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 1;
+
+}
+
+#hand-minute {
+    --rot-minute: 0;
+    position: absolute;
+    bottom: 50%;
+    /* top'tan verirsen yönü aşağı dönük oluyor */
+    left: 50%;
+    height: 32%;
+    width: 10px;
+    background-color: black;
+    transform: translateX(-50%) rotate(calc(var(--rot-minute)*1deg));
+    transform-origin: bottom;
+
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 2;
+}
+
+#hand-second {
+    --rot-second: 0;
+    position: absolute;
+    bottom: 50%;
+    /* top'tan verirsen yönü aşağı dönük oluyor */
+    left: 50%;
+    height: 35%;
+    width: 3px;
+    background-color: red;
+    transform: translateX(-50%) rotate(calc(var(--rot-second)*1deg));
+    transform-origin: bottom;
+
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 3;
+}
+
+#brand {
+    position: absolute;
+    z-index: 0;
+    top:30%;
+    left:50%;
+    transform: translateX(-50%);
+    font-weight: 900;
+}
